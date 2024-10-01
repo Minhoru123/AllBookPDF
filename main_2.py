@@ -8,10 +8,10 @@ try:
     with open('pdf_text2', 'r', encoding='utf-8') as file:
         prompt = file.read()
 except FileNotFoundError:
-    print("The prompt file 'pdf_text' was not found.")
+    print("The prompt file 'pdf_text2' was not found.")
     exit(1)
 except UnicodeDecodeError:
-    print("Could not decode 'pdf_text'. Please ensure it is encoded in UTF-8.")
+    print("Could not decode 'pdf_text2'. Please ensure it is encoded in UTF-8.")
     exit(1)
 
 # Limit the prompt length if it's too long
@@ -30,8 +30,8 @@ def get_relevant_text(question):
 
 # Define the book assistant template
 book_assistant_template = """
-You are an assistant specialized in providing insights and explanations based on the book 'The Mountain Is You' by Brianna Wiest. 
-Your role is to discuss the book's themes, concepts, and teachings, including personal growth, emotional transformation, and overcoming self-sabotage. 
+You are an assistant specialized in providing insights and explanations based on the book 'The Courage To Be Disliked'. 
+Your role is to discuss the book's themes, concepts, and teachings, including personal growth, emotional transformation, and overcoming rejection. 
 If a question is not related to the book, respond with, "I can't assist you with that, sorry!" 
 Question: {question} 
 Answer: 
@@ -68,7 +68,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index_book2.html")
 
 @app.route("/chatbot", methods=["POST"])
 def chatbot():
